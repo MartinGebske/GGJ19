@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ae479e4707b008f468d5707d345d6b43
+guid: 2da43dd31dc43584fbb2d4d50887a5c6
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -9,7 +9,7 @@ ModelImporter:
     2100002: "Bl\xE4tter"
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Trees
+    4300000: Tree_2
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -38,10 +38,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -72,7 +72,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

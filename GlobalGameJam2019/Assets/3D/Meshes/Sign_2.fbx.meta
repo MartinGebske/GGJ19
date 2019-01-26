@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a0d2b31759f8f74f996d76348620ad8
+guid: d170f1c567727634fbcfd79ff74d9a4f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: Schilder
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Streetsigns
+    4300000: Sign_2
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -37,10 +37,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -71,7 +71,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
