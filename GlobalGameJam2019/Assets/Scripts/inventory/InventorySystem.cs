@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventorySystem : MonoBehaviour
@@ -26,5 +27,10 @@ public class InventorySystem : MonoBehaviour
         }
         inventory.Add(obj);
         return true;
+    }
+
+    public int getItemCount(System.Type type)
+    {
+        return inventory.Count(item => item.GetType()==type);
     }
 }
