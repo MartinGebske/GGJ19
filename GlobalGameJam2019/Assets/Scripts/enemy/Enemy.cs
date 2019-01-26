@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
   public int StartHealth;
 
   private AICharacterControl charControl;
-  private EnemyManager enemyManager;
+  private HoboHome hoboHome;
   private Waypoint[] waypoints;
 
   private int waypointIdx;
@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
   {
     charControl = GetComponent<AICharacterControl>();
 
-    enemyManager = FindObjectOfType<EnemyManager>();
+    hoboHome = FindObjectOfType<HoboHome>();
     waypoints = FindObjectsOfType<Waypoint>();
 
     health = StartHealth;
@@ -30,9 +30,19 @@ public class Enemy : MonoBehaviour
 
   void Update()
   {
-    if (Vector3.Distance(charControl.target.position, transform.position) < 5f)
+    if (EnemyManager.pInstance.EnemyMode == EnemyMode.WALKING_WAYPOINTS)
     {
-      this.nextWaypoint();
+      if (Vector3.Distance(charControl.target.position, transform.position) < 5f)
+      {
+        this.nextWaypoint();
+      }
+    }
+    else
+    {
+      if (charControl.target != hoboHome.transform)
+      {
+        this.SetTarget(hoboHome.transform);
+      }
     }
   }
 
@@ -40,10 +50,6 @@ public class Enemy : MonoBehaviour
   {
     waypointIdx = Random.Range(0, waypoints.Length);
     this.SetTarget(waypoints[waypointIdx].transform);
-
-#if UNITY_EDITOR
-    this.TakeDamage();
-#endif
   }
 
   public void SetTarget(Transform target)
@@ -62,7 +68,7 @@ public class Enemy : MonoBehaviour
 
   private void die()
   {
-    enemyManager.OnEnemyDed(this);
+    EnemyManager.pInstance.OnEnemyDed(this);
     // TODO play die animation
 
     Destroy(this.gameObject, 1f);
