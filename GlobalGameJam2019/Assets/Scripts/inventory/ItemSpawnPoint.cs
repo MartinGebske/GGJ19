@@ -5,15 +5,15 @@ using UnityEngine;
 public class ItemSpawnPoint : MonoBehaviour
 {
     public SpawnItemObject[] initSpawnItemObjects;
-    private List<InventoryObject> spawnItemObjects = new List<InventoryObject>();
+    private List<InGameInventoryObject> spawnItemObjects = new List<InGameInventoryObject>();
     public float spawnByDayChance = 0.5f;
-    public InventoryObject child;
+    public InGameInventoryObject child;
 
     void Awake()
     {
         foreach (SpawnItemObject item in initSpawnItemObjects) {
             for (int i = 0; i < item.priority; i++) {
-                spawnItemObjects.Add(item.item);
+                spawnItemObjects.Add(item.item.item);
             }
         }
     }
@@ -21,20 +21,20 @@ public class ItemSpawnPoint : MonoBehaviour
     public bool spawnRandomObject()
     {
         if (child == null && spawnByDayChance>Random.Range(0,1)) {
-            child = Instantiate<InventoryObject>(getRandomObject(),transform);
+            child = Instantiate<InGameInventoryObject>(getRandomObject(),transform);
             return true;
         }
         return false;
     }
 
-    public InventoryObject take()
+    public InGameInventoryObject take()
     {
-        InventoryObject output = child;
+        InGameInventoryObject output = child;
         child = null;
         return output;
     }
 
-    private InventoryObject getRandomObject()
+    private InGameInventoryObject getRandomObject()
     {
         return spawnItemObjects[Random.Range(0, spawnItemObjects.Count - 1)];
     }

@@ -29,8 +29,8 @@ public class InventorySystem : MonoBehaviour
         return true;
     }
 
-    public int getItemCount(System.Type type)
+    public int getItemCount(InventoryObject.ItemType type)
     {
-        return inventory.Count(item => item.GetType()==type);
+        return inventory.Count(item => item.itemType==type);
     }
 }
