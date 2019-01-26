@@ -34,3 +34,15 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+GlobalGameJam2019/Assets/2D/UI\.meta
+
+GlobalGameJam2019/Assets/Animations/Animations\.meta
+
+GlobalGameJam2019/Assets/Audio\.meta
+
+GlobalGameJam2019/Assets/Scripts/Logic\.meta
+
+GlobalGameJam2019/Assets/Scripts/UI\.meta
+
+GlobalGameJam2019/Assets/Animations/AnimationController\.meta
