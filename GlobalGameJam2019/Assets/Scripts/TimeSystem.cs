@@ -31,7 +31,7 @@ public class TimeSystem : MonoBehaviour
                 mInstance = FindObjectOfType<TimeSystem>();
                 if (mInstance == null) {
                     GameObject gO = Instantiate(new GameObject());
-                    gO.AddComponent<TimeSystem>();
+                    mInstance = gO.AddComponent<TimeSystem>();
                 }
                 DontDestroyOnLoad(mInstance);
                 mInstance.time = new DateTime(1, 1, 1, 12, 0, 0);
