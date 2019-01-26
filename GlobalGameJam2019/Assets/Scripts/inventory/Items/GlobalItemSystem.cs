@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GlobalItemSystem : MonoBehaviour
 {
+    public List<ItemSystemEntry> itemSystemEntries = new List<ItemSystemEntry>();
     public static GlobalItemSystem pInstance
     {
         get
@@ -20,10 +22,16 @@ public class GlobalItemSystem : MonoBehaviour
         }
     }
 
+
     private static GlobalItemSystem mInstance;
 
     private void Awake()
     {
-        pInstance.name = "TIME_SYSTEM";
+        pInstance.name = "ITEM_SYSTEM";
+    }
+
+    public ItemSystemEntry getEntry(InventoryObject.ItemType itemType)
+    {
+        return itemSystemEntries.Find(entry => entry.itemType == itemType);
     }
 }

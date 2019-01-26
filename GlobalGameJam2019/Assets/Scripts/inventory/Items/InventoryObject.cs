@@ -6,9 +6,25 @@ using UnityEngine;
 public class InventoryObject
 {
     public ItemType itemType;
-    public int size
+    private ItemSystemEntry _itemSystemEntry = null;
+    public ItemSystemEntry itemSystemEntry
     {
-        get { return (int)itemType; }
+        get
+        {
+            if (_itemSystemEntry==null) {
+                _itemSystemEntry = GlobalItemSystem.pInstance.getEntry(itemType);
+            }
+            return _itemSystemEntry;
+        }
+    }
+
+
+    public float size
+    {
+        get
+        {
+            return itemSystemEntry.size;
+        }
     }
 
     public enum ItemType

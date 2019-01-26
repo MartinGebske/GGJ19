@@ -10,11 +10,11 @@ public class InventorySystem : MonoBehaviour
     public List<InventoryObject> inventory = new List<InventoryObject>();
     public int maxItems = -1;
 
-    public int usedSize
+    public float usedSize
     {
         get
         {
-            int curSize = 0;
+            float curSize = 0;
             foreach (InventoryObject item in inventory) {
                 curSize += item.size;
             }
@@ -33,6 +33,11 @@ public class InventorySystem : MonoBehaviour
             ui.UpdateUI(this);
         }
         return true;
+    }
+
+    public bool AddObject(InventoryObject.ItemType itemType)
+    {
+        return AddObject(new InventoryObject() { itemType = itemType });
     }
 
     public int GetItemCount(InventoryObject.ItemType type)
