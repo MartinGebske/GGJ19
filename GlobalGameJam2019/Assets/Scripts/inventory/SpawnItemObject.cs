@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class SpawnItemObject
 {
-    public InventoryObject item;
+    public InGameInventoryObject item;
     public int priority = 1;
 }

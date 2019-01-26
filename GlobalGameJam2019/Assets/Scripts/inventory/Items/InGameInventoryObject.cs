@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wood : InventoryObject
+public class InGameInventoryObject : MonoBehaviour
 {
-
+    public InventoryObject item;
 }

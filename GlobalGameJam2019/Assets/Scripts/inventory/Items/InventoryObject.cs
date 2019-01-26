@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class InventoryObject : MonoBehaviour
+public class InventoryObject
 {
-    public int size;
-    public string objectName;
+    public ItemType itemType;
+    public int size
+    {
+        get { return (int)itemType; }
+    }
+
+    public enum ItemType
+    {
+        wood = 1, scrap = 2, stone = 3
+    }
 }
