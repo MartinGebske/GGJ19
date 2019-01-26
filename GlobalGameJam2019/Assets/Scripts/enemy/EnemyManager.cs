@@ -28,6 +28,22 @@ public class EnemyManager : MonoBehaviour
 
   private List<Enemy> enemies = new List<Enemy>();
 
+  private System.DateTime startOfNight
+  {
+    get => new System.DateTime(
+      TimeSystem.pInstance.time.Year,
+      TimeSystem.pInstance.time.Month,
+      TimeSystem.pInstance.time.Day, NightTimeStartHour, 0, 0);
+  }
+  private System.DateTime endOfNight
+  {
+    get => new System.DateTime(
+      TimeSystem.pInstance.time.Year,
+      TimeSystem.pInstance.time.Month,
+      TimeSystem.pInstance.time.Day + 1, NightTimeEndHour, 0, 0);
+  }
+
+  #region Singleton
   public static EnemyManager pInstance
   {
     get
@@ -46,6 +62,7 @@ public class EnemyManager : MonoBehaviour
     }
   }
   private static EnemyManager mInstance;
+  #endregion
 
   void Start()
   {
@@ -56,10 +73,7 @@ public class EnemyManager : MonoBehaviour
       TimeSystem.pInstance.time.AddMinutes(MinutesBetweenWaves), this.onSpawnWave);
 
     // Start day/night loop
-    TimeSystem.pInstance.SubscribeEvent(new System.DateTime(
-      TimeSystem.pInstance.time.Year,
-      TimeSystem.pInstance.time.Month,
-      TimeSystem.pInstance.time.Day, NightTimeStartHour, 0, 0), this.onStartNight);
+    TimeSystem.pInstance.SubscribeEvent(startOfNight, this.onStartNight);
   }
 
   private void onStartNight()
@@ -67,10 +81,7 @@ public class EnemyManager : MonoBehaviour
     this.EnemyMode = EnemyMode.ATTACKING_HOBO_HOME;
 
     // Wait for end of night
-    TimeSystem.pInstance.SubscribeEvent(new System.DateTime(
-      TimeSystem.pInstance.time.Year,
-      TimeSystem.pInstance.time.Month,
-      TimeSystem.pInstance.time.Day + 1, NightTimeEndHour, 0, 0), this.onEndNight);
+    TimeSystem.pInstance.SubscribeEvent(endOfNight, this.onEndNight);
   }
 
   private void onEndNight()
@@ -78,10 +89,7 @@ public class EnemyManager : MonoBehaviour
     this.EnemyMode = EnemyMode.WALKING_WAYPOINTS;
 
     // Wait for start of night
-    TimeSystem.pInstance.SubscribeEvent(new System.DateTime(
-      TimeSystem.pInstance.time.Year,
-      TimeSystem.pInstance.time.Month,
-      TimeSystem.pInstance.time.Day, NightTimeStartHour, 0, 0), this.onStartNight);
+    TimeSystem.pInstance.SubscribeEvent(startOfNight, this.onStartNight);
   }
 
   private void onSpawnWave()
@@ -102,6 +110,7 @@ public class EnemyManager : MonoBehaviour
 
   public void SpawnEnemy()
   {
+    // Spawn an enemy at a random waypoint
     var enemy = GameObject.Instantiate(
         EnemyPrefab,
         waypoints[Random.Range(0, waypoints.Length)].transform.position,

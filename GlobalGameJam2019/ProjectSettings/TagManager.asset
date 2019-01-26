@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Enemy
+=======
+  - EKW
+>>>>>>> fb4a7fc94b3c063dff167a213504d141f6a64502
   layers:
   - Default
   - TransparentFX
