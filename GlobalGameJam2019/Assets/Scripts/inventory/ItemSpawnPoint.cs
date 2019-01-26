@@ -13,7 +13,7 @@ public class ItemSpawnPoint : MonoBehaviour
     {
         foreach (SpawnItemObject item in initSpawnItemObjects) {
             for (int i = 0; i < item.priority; i++) {
-                spawnItemObjects.Add(item.item.item);
+                spawnItemObjects.Add(item.item);
             }
         }
     }
