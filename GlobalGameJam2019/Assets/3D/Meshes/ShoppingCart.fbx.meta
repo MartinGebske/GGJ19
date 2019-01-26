@@ -1,39 +1,39 @@
 fileFormatVersion: 2
-guid: ffdf35852dccf804a9daf0ccc1746500
+guid: 745aff3382e94354383cac5308ae1deb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: EKW_Bags
     100002: EKW_Booster
-    100004: //RootNode
-    100006: EKW_Linkage
-    100008: EKW_Ram
+    100004: EKW_Linkage
+    100006: EKW_Ram
+    100008: //RootNode
     400000: EKW_Bags
     400002: EKW_Booster
-    400004: //RootNode
-    400006: EKW_Linkage
-    400008: EKW_Ram
+    400004: EKW_Linkage
+    400006: EKW_Ram
+    400008: //RootNode
     2100000: Gitter
     2100002: WagenMain
-    2100004: Ram
-    2100006: Booster
-    2100008: No Name
-    2100010: Linkage
+    2100004: Linkage
+    2100006: No Name
+    2100008: Booster
+    2100010: Ram
     2300000: EKW_Bags
     2300002: EKW_Booster
-    2300004: //RootNode
-    2300006: EKW_Linkage
-    2300008: EKW_Ram
+    2300004: EKW_Linkage
+    2300006: EKW_Ram
+    2300008: //RootNode
     3300000: EKW_Bags
     3300002: EKW_Booster
-    3300004: //RootNode
-    3300006: EKW_Linkage
-    3300008: EKW_Ram
+    3300004: EKW_Linkage
+    3300006: EKW_Ram
+    3300008: //RootNode
     4300000: EKW_Base
-    4300002: EKW_Ram
-    4300004: EKW_Booster
-    4300006: EKW_Bags
-    4300008: EKW_Linkage
+    4300002: EKW_Linkage
+    4300004: EKW_Bags
+    4300006: EKW_Booster
+    4300008: EKW_Ram
   externalObjects: {}
   materials:
     importMaterials: 1
