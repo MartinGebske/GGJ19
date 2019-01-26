@@ -11,7 +11,7 @@ public class TimeSystem : MonoBehaviour
         get;
         private set;
     }
-    public float minutesPerDay = 10;
+    public float minutesPerDay = 10f;
     private const float MINUTES_IN_A_DAY = 1440;
     private float timeScale
     {
@@ -50,7 +50,6 @@ public class TimeSystem : MonoBehaviour
     private void Update()
     {
         time = time.AddSeconds(Time.deltaTime * timeScale);
-        Debug.Log(time.ToShortTimeString());
         List<DateTimeEvent> toExecute = new List<DateTimeEvent>();
         foreach (DateTimeEvent dateTimeEvent in events.Where<DateTimeEvent>(item => item.triggerTime < time)) {
             toExecute.Add(dateTimeEvent);

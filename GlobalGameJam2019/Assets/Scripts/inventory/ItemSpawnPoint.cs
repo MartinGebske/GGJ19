@@ -16,11 +16,21 @@ public class ItemSpawnPoint : MonoBehaviour
                 spawnItemObjects.Add(item.item);
             }
         }
+
+        System.Action action = null;
+        action = () =>
+        {
+            TimeSystem.pInstance.SubscribeEvent(TimeSystem.pInstance.time.AddHours(24), action);
+            Debug.Log("Spawning");
+            spawnRandomObject();
+        };
+
+        action.Invoke();
     }
 
     public bool spawnRandomObject()
     {
-        if (child == null && spawnByDayChance>Random.Range(0,1)) {
+        if (child == null && spawnByDayChance>Random.Range(0.0f,1.0f)) {
             child = Instantiate<InGameInventoryObject>(getRandomObject(),transform);
             return true;
         }
@@ -36,6 +46,6 @@ public class ItemSpawnPoint : MonoBehaviour
 
     private InGameInventoryObject getRandomObject()
     {
-        return spawnItemObjects[Random.Range(0, spawnItemObjects.Count - 1)];
+        return spawnItemObjects[Random.Range(0, spawnItemObjects.Count)];
     }
 }

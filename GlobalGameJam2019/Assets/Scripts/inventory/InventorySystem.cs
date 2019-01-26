@@ -24,7 +24,7 @@ public class InventorySystem : MonoBehaviour
 
     public bool AddObject(InventoryObject obj)
     {
-        if (maxItems == -1 ||usedSize + obj.size > maxItems) {
+        if (maxItems != -1 && usedSize + obj.size > maxItems) {
             return false;
         }
         inventory.Add(obj);
