@@ -6,7 +6,7 @@ using UnityEngine;
 public class InventorySystem : MonoBehaviour
 {
     public List<InventoryObject> inventory = new List<InventoryObject>();
-    public int maxItems;
+    public int maxItems = -1;
 
     public int usedSize
     {
@@ -22,7 +22,7 @@ public class InventorySystem : MonoBehaviour
 
     public bool AddObject(InventoryObject obj)
     {
-        if (usedSize + obj.size > maxItems) {
+        if (maxItems == -1 ||usedSize + obj.size > maxItems) {
             return false;
         }
         inventory.Add(obj);
