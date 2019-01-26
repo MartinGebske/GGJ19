@@ -6,11 +6,11 @@ public class Sun : MonoBehaviour
 {
   private Light light;
 
-  public AnimationCurve sunCurve;
+  public AnimationCurve intensityCurve;
 
   public void SetCurves(AnimationCurve sunCurve)
   {
-    this.sunCurve = sunCurve;
+    this.intensityCurve = sunCurve;
   }
 
   void Start()
@@ -20,7 +20,7 @@ public class Sun : MonoBehaviour
 
   void Update()
   {
-    this.light.intensity = sunCurve.Evaluate(
+    this.light.intensity = intensityCurve.Evaluate(
         ((float)TimeSystem.pInstance.time.TimeOfDay.TotalMinutes % 1440) / 1440);
   }
 }
