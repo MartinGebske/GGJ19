@@ -10,7 +10,7 @@ namespace CAM
         public Transform near;
         public Transform far;
         public float camSpeed = 4;
-        ThirdPersonCharacter person;
+        public ThirdPersonCharacter person;
 
         public void Update()
         {

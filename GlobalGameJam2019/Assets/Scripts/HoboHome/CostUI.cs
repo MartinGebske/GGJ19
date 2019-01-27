@@ -11,7 +11,8 @@ public class CostUI : MonoBehaviour
     public void UpdateUI(HouseStats stats)
     {
         foreach (ItemSystemEntry entry in GlobalItemSystem.pInstance.itemSystemEntries) {
-            if (stats.costs.Find(item => item.itemType==entry.itemType).count==0) {
+            CostObject costObject = stats.costs.Find(item => item.itemType == entry.itemType);
+            if (costObject==null || costObject.count==0) {
                 if (inventoryUIItems.ContainsKey(entry.itemType)) {
                     inventoryUIItems[entry.itemType].textMesh.text = 0.ToString();
                 }
