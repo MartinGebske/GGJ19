@@ -21,7 +21,7 @@ public class PlayerTakeEKW : MonoBehaviour
             ekwSystem.autoUpdateUI = false;
             hoboHomeSystem.autoUpdateUI = true;
             hoboHomeSystem.ui.UpdateUI(hoboHomeSystem);
-            animator.SetBool("Pushing", true);
+            animator.SetBool("Pushing", false);
             return true;
         }
 
