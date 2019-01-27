@@ -1,41 +1,14 @@
 fileFormatVersion: 2
-guid: 6c8668fb7c42ea845b1ece84ffc1bda9
+guid: 3d869348d8efbdd4e9a2dbf469a46d7c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: FalleL
-    100002: FalleM
-    100004: FalleR
-    100006: //RootNode
-    100008: TrapL
-    100010: TrapM
-    100012: TrapR
-    400000: FalleL
-    400002: FalleM
-    400004: FalleR
-    400006: //RootNode
-    400008: TrapL
-    400010: TrapM
-    400012: TrapR
+    100000: //RootNode
+    400000: //RootNode
     2100000: MainMetal
-    2300000: FalleL
-    2300002: FalleM
-    2300004: FalleR
-    2300006: TrapL
-    2300008: TrapM
-    2300010: TrapR
-    3300000: FalleL
-    3300002: FalleM
-    3300004: FalleR
-    3300006: TrapL
-    3300008: TrapM
-    3300010: TrapR
-    4300000: FalleL
-    4300002: FalleM
-    4300004: FalleR
-    4300006: TrapM
-    4300008: TrapL
-    4300010: TrapR
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Bottle
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -67,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.3
+    globalScale: 2
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
