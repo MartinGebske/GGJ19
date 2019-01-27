@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -7,88 +8,74 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerAttack : MonoBehaviour
 {
-  public float timeBetweenAttacks = 0.5f;
-  public GameObject myEnemy;
-  public GameObject NewsPaper;
-
-
-  float timer;
-  bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
-
-  Animator animator;
-
-  // Start is called before the first frame update
-  void Start()
-  {
-    animator = GetComponent<Animator>();
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
-    timer += Time.deltaTime;
-    if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+    public float timeBetweenAttacks = 0.5f;
+    public List<EnemyHealth> enemysInRange = new List<EnemyHealth>();
+    public GameObject NewsPaper;
+    bool playerInRange
     {
-      if (timer >= timeBetweenAttacks && playerInRange /*&& enemyHealth.currentHealth > 0*/)
-      {
-        // ... attack.
-        Attack();
-      }
+        get
+        {
+            return enemysInRange.Count > 0;
+        }
+    }
+    DateTime nextAttack = DateTime.Now;
 
+    Animator animator;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent<Animator>();
     }
 
-#if UNITY_EDITOR
-    // for testing
-    if (Input.GetKeyDown(KeyCode.F))
+    #if UNITY_EDITOR
+    // Update is called once per frame
+    void Update()
     {
-      this.Attack();
+        // for testing
+        if (Input.GetKeyDown(KeyCode.F)) {
+            this.Attack();
+        }
     }
-#endif
+        #endif
 
-  }
-
-  void OnTriggerEnter(Collider other)
-  {
-    // TODO handle case when multiple enemies are in range
-    // If the entering collider is the player...
-    if (other.gameObject.tag == "Enemy" && myEnemy == null)
+    void OnTriggerEnter(Collider col)
     {
-      // ... the player is in range.
-      playerInRange = true;
-      Debug.Log("Enemy in Range");
-      myEnemy = other.gameObject;
+        // TODO handle case when multiple enemies are in range
+        // If the entering collider is the player...
+        if (col.gameObject.tag == "Enemy") {
+            // ... the player is in range.
+            Debug.Log("Enemy in Range");
+            enemysInRange.Add(col.GetComponent<EnemyHealth>());
+        }
     }
-  }
 
 
-  void OnTriggerExit(Collider other)
-  {
-    // If the exiting collider is the player...
-    if (myEnemy != null && other.gameObject == myEnemy.gameObject)
+    void OnTriggerExit(Collider col)
     {
-      // ... the player is no longer in range.
-      playerInRange = false;
-      myEnemy = null;
+        EnemyHealth toCheck = col.GetComponent<EnemyHealth>();
+        if (toCheck!=null && enemysInRange.Contains(toCheck)) {
+            enemysInRange.Remove(toCheck);
+        }
     }
-  }
 
-  void Attack()
-  {
-    Debug.Log("Fire");
-    animator.SetTrigger("Attack");
-    StartCoroutine(showNewspaper());
-
-    if (myEnemy != null)
+    public bool Attack()
     {
-      myEnemy.GetComponent<EnemyHealth>().TakeDamage(100, new Vector3(0, 0, 0));
-    }
-  }
+        if (nextAttack > DateTime.Now || !playerInRange) {
+            return false;
+        }
+        Debug.Log("Fire");
+        animator.SetTrigger("Attack");
+        StartCoroutine(showNewspaper());
 
-  IEnumerator showNewspaper ()
-  {
-    NewsPaper.SetActive(true);
-    yield return new WaitForSeconds(2f);
-    NewsPaper.SetActive(false);
-  }
+        enemysInRange[0].TakeDamage(100, new Vector3(0, 0, 0));
+        return true;
+    }
+
+    IEnumerator showNewspaper()
+    {
+        NewsPaper.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        NewsPaper.SetActive(false);
+    }
 }

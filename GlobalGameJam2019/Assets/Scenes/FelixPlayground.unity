@@ -419,7 +419,8 @@ MonoBehaviour:
   visual: {fileID: 2106379775}
   upgrades:
   - name: DogHouse
-    visualPrefab: {fileID: 0}
+    visualPrefab: {fileID: 3062502145061900834, guid: 1112dbe225a04f1439e15634e11b3a7f,
+      type: 3}
     stats:
       HP: 100
       costs:
@@ -925,6 +926,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1417104032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1417104032, guid: 89e65b8b45c21664aa8ec108074924cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1884522899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1417104040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417104032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bf48b79d9c04052b3e5ff06cbee63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTakeEKW: {fileID: 1134555759}
+  hoboHome: {fileID: 171373551}
 --- !u!114 &1479859025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,8 +1217,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1134555759}
-        m_MethodName: take
+      - m_Target: {fileID: 1417104040}
+        m_MethodName: interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1443,25 +1464,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2106379774}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2106379776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5083492107443562935, guid: b13c7c18ad4d9864b970267f4903294d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2106379774}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &2106379777
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106379776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: -0.03, y: 0.03, z: 0.03}
-  m_Center: {x: 0.012, y: 0, z: 0.01255539}
 --- !u!1001 &2892335610357362848
 PrefabInstance:
   m_ObjectHideFlags: 0
