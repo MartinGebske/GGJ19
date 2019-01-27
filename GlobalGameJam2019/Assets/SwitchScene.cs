@@ -7,7 +7,7 @@ public class SwitchScene : MonoBehaviour
 {
   public void SwitchTo(string sceneName)
   {
-    StartCoroutine(SwitchToAsync(sceneName, 1f));
+    StartCoroutine(SwitchToAsync(sceneName, 3f));
   }
 
   IEnumerator SwitchToAsync(string sceneName, float delay)
