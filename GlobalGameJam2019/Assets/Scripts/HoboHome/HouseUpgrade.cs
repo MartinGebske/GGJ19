@@ -9,7 +9,7 @@ public class HouseUpgrade
     public GameObject visualPrefab;
 
     [SerializeField]
-    private HouseStats stats;
+    public HouseStats stats;
 
     public bool IsAffordable(InventorySystem scource)
     {
