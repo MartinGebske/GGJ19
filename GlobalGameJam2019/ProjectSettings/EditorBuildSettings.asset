@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: 514514a58dd48a848b2d272765175e96
-  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: f29f019783655ca4b95950aab0e77e3b
-  - enabled: 0
-    path: Assets/Scenes/JustinPlayground.unity
-    guid: 143fc98cf528e6f48b94444726d5a7db
   m_configObjects: {}

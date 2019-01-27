@@ -26,7 +26,7 @@ public class PlayerTakeEKW : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1)) {
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 3)) {
             if (hit.collider.tag!="EKW") {
                 return false;
             }
