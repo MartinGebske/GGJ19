@@ -11,7 +11,6 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI(InventorySystem source)
     {
-        Debug.Log("UPDATE");
         foreach (ItemSystemEntry entry in GlobalItemSystem.pInstance.itemSystemEntries) {
             if (source.GetItemCount(entry.itemType)==0) {
                 if (inventoryUIItems.ContainsKey(entry.itemType)) {

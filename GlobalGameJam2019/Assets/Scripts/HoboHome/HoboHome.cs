@@ -48,4 +48,9 @@ public class HoboHome : MonoBehaviour
         upgrades.RemoveAt(0);
         return true;
     }
+
+    public void TakeDamage(float damage)
+    {
+        stats.HP -= damage / stats.defense;
+    }
 }
