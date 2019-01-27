@@ -70,7 +70,8 @@ public class Enemy : MonoBehaviour
   {
     EnemyManager.pInstance.OnEnemyDed(this);
     // TODO play die animation
+    this.GetComponent<Animator>().SetTrigger("Death");
 
-    Destroy(this.gameObject, 1f);
+    Destroy(this.gameObject, 4f);
   }
 }

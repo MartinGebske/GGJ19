@@ -9,7 +9,6 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
     public AudioClip deathClip;                 // The sound to play when the enemy dies.
     public AudioClip damageClip;
-    public Slider healthSlider;
 
     Animator anim;                              // Reference to the animator.
     AudioSource enemyAudio;                     // Reference to the audio source.
@@ -54,7 +53,6 @@ public class EnemyHealth : MonoBehaviour
 
         // Reduce the current health by the amount of damage sustained.
         currentHealth -= amount;
-        healthSlider.value = currentHealth;
 
         // Set the position of the particle system to where the hit was sustained.
         //hitParticles.transform.position = hitPoint;
@@ -91,7 +89,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.clip = deathClip;
         enemyAudio.Play ();
 
-        Destroy(gameObject, 10f);
+        this.GetComponent<Enemy>().TakeDamage(100);
     }
 
 
