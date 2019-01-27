@@ -7,21 +7,34 @@ ModelImporter:
     100002: Cylinder
     100004: Cylinder.001
     100006: Lamp
+    100008: Bridges
+    100010: Lamp.001
+    100012: OcclusionMesh
     400000: //RootNode
     400002: Cylinder
     400004: Cylinder.001
     400006: Lamp
+    400008: Bridges
+    400010: Lamp.001
+    400012: OcclusionMesh
     2100000: Material
     2100002: Material.001
     2300000: //RootNode
     2300002: Cylinder
     2300004: Cylinder.001
+    2300006: Bridges
+    2300008: OcclusionMesh
     3300000: //RootNode
     3300002: Cylinder
     3300004: Cylinder.001
+    3300006: Bridges
+    3300008: OcclusionMesh
     4300000: Cylinder
     4300002: Cylinder.001
+    4300004: OcclusionMesh
+    4300006: Bridges
     10800000: Lamp
+    10800002: Lamp.001
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -88,7 +101,7 @@ ModelImporter:
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
