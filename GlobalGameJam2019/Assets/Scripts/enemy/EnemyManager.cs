@@ -12,7 +12,7 @@ public enum EnemyMode
 public class EnemyManager : MonoBehaviour
 {
   [Header("Assign Prefab")]
-  public GameObject EnemyPrefab;
+  public List<GameObject> EnemyPrefabs;
   public int NightTimeStartHour;
   public int NightTimeEndHour;
 
@@ -112,7 +112,7 @@ public class EnemyManager : MonoBehaviour
   {
     // Spawn an enemy at a random waypoint
     var enemy = GameObject.Instantiate(
-        EnemyPrefab,
+        EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)],
         waypoints[Random.Range(0, waypoints.Length)].transform.position,
         Quaternion.identity
     );

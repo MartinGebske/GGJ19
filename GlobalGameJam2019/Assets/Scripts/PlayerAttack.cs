@@ -64,6 +64,7 @@ public class PlayerAttack : MonoBehaviour
         if (nextAttack > DateTime.Now || !playerInRange) {
             return false;
         }
+        nextAttack = DateTime.Now.AddSeconds(0.3f);
         Debug.Log("Fire");
         animator.SetTrigger("Attack");
         StartCoroutine(showNewspaper());
