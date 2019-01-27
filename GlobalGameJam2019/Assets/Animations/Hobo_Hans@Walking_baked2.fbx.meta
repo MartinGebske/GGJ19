@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 11ddab1f92071654ebd17c615b9001f9
+guid: aa39b8f6344937646826b2dbe9bba794
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -75,15 +75,10 @@ ModelImporter:
     400068: mixamorig:Spine2
     2100000: HoboMaterial
     4300000: HoboHans
-    7400000: Walking
+    7400000: Walking_baked2
     9500000: //RootNode
     13700000: HoboHans
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HoboMaterial
-    second: {fileID: 2100000, guid: 99dfe92ad0706f04f85d706e7acaa943, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -112,10 +107,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walking
+      name: Walking_baked2
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 72
+      lastFrame: 75
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

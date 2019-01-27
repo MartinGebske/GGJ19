@@ -14,6 +14,9 @@ public class InventoryUI : MonoBehaviour
         Debug.Log("UPDATE");
         foreach (ItemSystemEntry entry in GlobalItemSystem.pInstance.itemSystemEntries) {
             if (source.GetItemCount(entry.itemType)==0) {
+                if (inventoryUIItems.ContainsKey(entry.itemType)) {
+                    inventoryUIItems[entry.itemType].textMesh.text = 0.ToString();
+                }
                 continue;
             }
 
