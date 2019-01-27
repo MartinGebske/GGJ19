@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour
           GameObject gO = Instantiate(new GameObject("EnemyManager"));
           mInstance = gO.AddComponent<EnemyManager>();
         }
-        DontDestroyOnLoad(mInstance);
+        //DontDestroyOnLoad(mInstance);
       }
       return mInstance;
     }
@@ -74,6 +74,11 @@ public class EnemyManager : MonoBehaviour
 
     // Start day/night loop
     TimeSystem.pInstance.SubscribeEvent(startOfNight, this.onStartNight);
+  }
+
+  void OnEnable()
+  {
+    waypoints = FindObjectsOfType<Waypoint>();
   }
 
   private void onStartNight()

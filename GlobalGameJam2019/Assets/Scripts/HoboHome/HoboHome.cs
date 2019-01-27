@@ -9,6 +9,7 @@ public class HoboHome : MonoBehaviour
     public InventorySystem inventory;
     public Transform visual;
     public CostUI costUI;
+    public GameObject deathScreen;
 
     [SerializeField]
     private List<HouseUpgrade> upgrades = new List<HouseUpgrade>();
@@ -16,6 +17,7 @@ public class HoboHome : MonoBehaviour
     private void Start()
     {
         costUI.UpdateUI(nextUpgrade.stats);
+        deathScreen.SetActive(false);
     }
 
     public bool canUpgrade
@@ -65,5 +67,9 @@ public class HoboHome : MonoBehaviour
     public void TakeDamage(float damage)
     {
         stats.HP -= damage / stats.defense;
+
+        if(stats.HP <= 0) {
+            deathScreen.SetActive(true);
+        }
     }
 }
