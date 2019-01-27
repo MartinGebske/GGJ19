@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
   void Start()
   {
+    myHealth = GetComponent<EnemyHealth>();
     charControl = GetComponent<AICharacterControl>();
     animator = GetComponent<Animator>();
 
