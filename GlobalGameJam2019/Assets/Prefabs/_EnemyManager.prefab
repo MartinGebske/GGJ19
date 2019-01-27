@@ -49,9 +49,9 @@ MonoBehaviour:
   - {fileID: 2717036306240911844, guid: f89e3210b718be049a2e26ab5db834f3, type: 3}
   NightTimeStartHour: 23
   NightTimeEndHour: 5
-  MinutesBetweenWaves: 5
+  MinutesBetweenWaves: 600
   SpawnsPerWave: 3
-  MaxEnemiesCount: 50
+  MaxEnemiesCount: 10
 --- !u!114 &3473540146193999084
 MonoBehaviour:
   m_ObjectHideFlags: 0
