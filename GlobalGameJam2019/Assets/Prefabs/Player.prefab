@@ -632,6 +632,8 @@ MonoBehaviour:
   player: {fileID: 1417104041}
   EKWParent: {fileID: 174191628}
   animator: {fileID: 1417104040}
+  ekwSystem: {fileID: 0}
+  hoboHomeSystem: {fileID: 0}
 --- !u!1 &1160575290
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +839,7 @@ GameObject:
   - component: {fileID: 1417104034}
   - component: {fileID: 1417104036}
   - component: {fileID: 1417104037}
+  - component: {fileID: 4843178309610268973}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1046,7 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.5
-  myEnemy: {fileID: 0}
+  enemysInRange: []
   NewsPaper: {fileID: 7535011255303386900}
 --- !u!114 &1417104036
 MonoBehaviour:
@@ -1080,6 +1083,21 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 2
   m_AnimSpeedMultiplier: 1.5
   m_GroundCheckDistance: 0.3
+--- !u!114 &4843178309610268973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417104032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bf48b79d9c04052b3e5ff06cbee63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTakeEKW: {fileID: 0}
+  hoboHome: {fileID: 0}
+  playerAttack: {fileID: 0}
 --- !u!1 &1624193222
 GameObject:
   m_ObjectHideFlags: 0
