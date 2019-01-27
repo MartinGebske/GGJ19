@@ -20,7 +20,7 @@ public class ItemSpawnPoint : MonoBehaviour
         System.Action action = null;
         action = () =>
         {
-            TimeSystem.pInstance.SubscribeEvent(TimeSystem.pInstance.time.AddHours(24), action);
+            TimeSystem.pInstance.SubscribeEvent(TimeSystem.pInstance.time.AddHours(0.25), action);
             Debug.Log("Spawning");
             spawnRandomObject();
         };
