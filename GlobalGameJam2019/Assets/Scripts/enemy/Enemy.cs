@@ -9,16 +9,20 @@ public class Enemy : MonoBehaviour
 {
   public int StartHealth;
 
+  private Animator animator;
   private AICharacterControl charControl;
   private HoboHome hoboHome;
   private Waypoint[] waypoints;
+  private EnemyHealth myHealth;
 
   private int waypointIdx;
   private int health;
+  private bool isAttacking;
 
   void Start()
   {
     charControl = GetComponent<AICharacterControl>();
+    animator = GetComponent<Animator>();
 
     hoboHome = FindObjectOfType<HoboHome>();
     waypoints = FindObjectsOfType<Waypoint>();
@@ -30,6 +34,8 @@ public class Enemy : MonoBehaviour
 
   void Update()
   {
+    if (myHealth.IsDead) return;
+
     if (EnemyManager.pInstance.EnemyMode == EnemyMode.WALKING_WAYPOINTS)
     {
       if (Vector3.Distance(charControl.target.position, transform.position) < 5f)
@@ -43,6 +49,22 @@ public class Enemy : MonoBehaviour
       {
         this.SetTarget(hoboHome.transform);
       }
+      if (!isAttacking && Vector3.Distance(charControl.target.position, transform.position) < 2f)
+      {
+        StartCoroutine(Attack());
+      }
+    }
+  }
+
+  IEnumerator Attack()
+  {
+    if (!myHealth.IsDead)
+    {
+      isAttacking = true;
+      animator.SetTrigger("Attack");
+      hoboHome.TakeDamage(2f);
+      yield return new WaitForSeconds(3f);
+      isAttacking = false;
     }
   }
 

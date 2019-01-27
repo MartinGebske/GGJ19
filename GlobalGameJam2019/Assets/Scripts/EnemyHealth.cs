@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
   bool isDead;                                // Whether the enemy is dead.
   bool isSinking;                             // Whether the enemy has started sinking through the floor.
 
+  public bool IsDead { get => isDead; private set => isDead = value; }
 
   void Awake()
   {
@@ -46,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
   public void TakeDamage(int amount, Vector3 hitPoint)
   {
     // If the enemy is dead...
-    if (isDead)
+    if (IsDead)
       // ... no need to take damage so exit the function.
       return;
 
@@ -90,7 +91,7 @@ public class EnemyHealth : MonoBehaviour
   void Death()
   {
     // The enemy is dead.
-    isDead = true;
+    IsDead = true;
 
     // Turn the collider into a trigger so shots can pass through it.
     //capsuleCollider.isTrigger = true;

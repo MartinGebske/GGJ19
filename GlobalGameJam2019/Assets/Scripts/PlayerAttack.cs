@@ -64,12 +64,13 @@ public class PlayerAttack : MonoBehaviour
         if (nextAttack > DateTime.Now || !playerInRange) {
             return false;
         }
-        nextAttack = DateTime.Now.AddSeconds(0.3f);
+        nextAttack = DateTime.Now.AddSeconds(2.3f);
         Debug.Log("Fire");
         animator.SetTrigger("Attack");
         StartCoroutine(showNewspaper());
 
-        enemysInRange[0].TakeDamage(100, new Vector3(0, 0, 0));
+        enemysInRange[0].TakeDamage(1000, new Vector3(0, 0, 0));
+        enemysInRange.RemoveAt(0);
         return true;
     }
 
