@@ -8,9 +8,15 @@ public class HoboHome : MonoBehaviour
     public HouseStats stats;
     public InventorySystem inventory;
     public Transform visual;
+    public CostUI costUI;
 
     [SerializeField]
     private List<HouseUpgrade> upgrades = new List<HouseUpgrade>();
+
+    private void Start()
+    {
+        costUI.UpdateUI(nextUpgrade.stats);
+    }
 
     public bool canUpgrade
     {
@@ -41,11 +47,18 @@ public class HoboHome : MonoBehaviour
             Debug.LogError("Cant afford to Upgrade your Home to "+upgrades[0]);
             return false;
         }
-        
+
         stats = upgrades[0].Buy(inventory);
         Destroy(visual.gameObject);
         visual = Instantiate(upgrades[0].visualPrefab,transform).transform;
         upgrades.RemoveAt(0);
+
+        if (nextUpgrade!=null) {
+            costUI.UpdateUI(nextUpgrade.stats);
+        } else {
+            costUI.UpdateUI(new HouseStats());
+        }
+
         return true;
     }
 
