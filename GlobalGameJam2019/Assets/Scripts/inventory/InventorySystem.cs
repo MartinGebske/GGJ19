@@ -31,6 +31,7 @@ public class InventorySystem : MonoBehaviour
 
         if (ui != null && autoUpdateUI) {
             ui.UpdateUI(this);
+            Debug.Log("UPDATE UI");
         }
         return true;
     }

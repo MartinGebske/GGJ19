@@ -23,9 +23,12 @@ public class InventoryUI : MonoBehaviour
                 inventoryUIItems.Add(entry.itemType,Instantiate<InventoryUIItem>(uiItemPrefab,transform));
                 inventoryUIItems[entry.itemType].image.sprite = entry.icon;
                 updateLayout(inventoryUIItems[entry.itemType].gameObject);
+                Debug.Log("Spawn UI ITEM");
 
             }
             inventoryUIItems[entry.itemType].textMesh.text = source.GetItemCount(entry.itemType).ToString();
+            Debug.Log("Setting UI ITEM");
+
         }
     }
 
