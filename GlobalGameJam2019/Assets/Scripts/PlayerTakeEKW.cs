@@ -9,28 +9,28 @@ public class PlayerTakeEKW : MonoBehaviour
     public Animator animator;
     Transform child = null;
 
-    public void take()
+    public bool take()
     {
         if (child!=null) {
             child.parent = player.parent;
             child = null;
-            return;
+            return true;
         }
 
         RaycastHit hit;
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 1)) {
             if (hit.collider.tag!="EKW") {
-                return;
+                return false;
             }
             hit.collider.transform.parent = EKWParent;
             hit.collider.transform.position = EKWParent.position;
             hit.collider.transform.rotation = EKWParent.rotation;
             animator.SetBool("Pushing", true);
             child = hit.collider.transform;
-            return;
+            return true;
         }
 
-        return;
+        return false;
     }
 }

@@ -7,6 +7,7 @@ public class HoboHome : MonoBehaviour
 {
     public HouseStats stats;
     public InventorySystem inventory;
+    public Transform visual;
 
     [SerializeField]
     private List<HouseUpgrade> upgrades = new List<HouseUpgrade>();
@@ -30,17 +31,21 @@ public class HoboHome : MonoBehaviour
         }
     }
 
-    public void Upgrade()
+    public bool Upgrade()
     {
         if (upgrades.Count==0) {
             Debug.LogWarning("No more upgrades Avaliable");
+            return false;
         }
         if (!canUpgrade) {
             Debug.LogError("Cant afford to Upgrade your Home to "+upgrades[0]);
-            return;
+            return false;
         }
-
+        
         stats = upgrades[0].Buy(inventory);
+        Destroy(visual.gameObject);
+        visual = Instantiate(upgrades[0].visualPrefab,transform).transform;
         upgrades.RemoveAt(0);
+        return true;
     }
 }
