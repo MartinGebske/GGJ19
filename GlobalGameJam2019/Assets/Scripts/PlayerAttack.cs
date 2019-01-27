@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
 {
   public float timeBetweenAttacks = 0.5f;
   public GameObject myEnemy;
+  public GameObject NewsPaper;
 
 
   float timer;
@@ -76,10 +77,18 @@ public class PlayerAttack : MonoBehaviour
   {
     Debug.Log("Fire");
     animator.SetTrigger("Attack");
+    StartCoroutine(showNewspaper());
 
     if (myEnemy != null)
     {
       myEnemy.GetComponent<EnemyHealth>().TakeDamage(100, new Vector3(0, 0, 0));
     }
+  }
+
+  IEnumerator showNewspaper ()
+  {
+    NewsPaper.SetActive(true);
+    yield return new WaitForSeconds(2f);
+    NewsPaper.SetActive(false);
   }
 }
