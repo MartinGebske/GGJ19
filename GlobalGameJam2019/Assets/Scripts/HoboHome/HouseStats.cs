@@ -7,4 +7,5 @@ public class HouseStats
 {
     public float HP;
     public List<CostObject> costs;
+    public float defense = 1;
 }

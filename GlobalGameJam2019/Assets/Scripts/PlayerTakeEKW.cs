@@ -9,11 +9,18 @@ public class PlayerTakeEKW : MonoBehaviour
     public Animator animator;
     Transform child = null;
 
+    public InventorySystem ekwSystem;
+    public InventorySystem hoboHomeSystem;
+
     public bool take()
     {
         if (child!=null) {
             child.parent = player.parent;
             child = null;
+
+            ekwSystem.autoUpdateUI = false;
+            hoboHomeSystem.autoUpdateUI = true;
+            hoboHomeSystem.ui.UpdateUI(hoboHomeSystem);
             return true;
         }
 
@@ -28,6 +35,9 @@ public class PlayerTakeEKW : MonoBehaviour
             hit.collider.transform.rotation = EKWParent.rotation;
             animator.SetBool("Pushing", true);
             child = hit.collider.transform;
+            hoboHomeSystem.autoUpdateUI = false;
+            ekwSystem.autoUpdateUI = true;
+            ekwSystem.ui.UpdateUI(ekwSystem);
             return true;
         }
 

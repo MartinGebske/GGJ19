@@ -17,20 +17,21 @@ public class InventoryTransferZone : MonoBehaviour
         destination.inventory.AddRange(source.inventory);
         source.inventory.Clear();
 
-        source.autoUpdateUI = false;
-        destination.autoUpdateUI = true;
-        destination.ui.UpdateUI(destination);
+        //source.autoUpdateUI = false;
+        //destination.autoUpdateUI = true;
+        source.ui.UpdateUI(source);
     }
 
     void OnTriggerExit(Collider col)
     {
+        Debug.LogWarning("Exit");
         InventorySystem leaving = col.GetComponent<InventorySystem>();
         if (leaving == null) {
             return;
         }
 
-        leaving.autoUpdateUI = true;
-        leaving.ui.UpdateUI(leaving);
+        //leaving.autoUpdateUI = true;
+        //leaving.ui.UpdateUI(leaving);
     }
 
 }
