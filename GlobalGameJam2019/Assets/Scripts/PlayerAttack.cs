@@ -65,6 +65,6 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         Debug.Log("Fire");
-        myEnemy.GetComponent<EnemyHealth>().TakeDamage(10,new Vector3(0,0,0));
+        myEnemy.GetComponent<EnemyHealth>().TakeDamage(100,new Vector3(0,0,0));
     }
 }
