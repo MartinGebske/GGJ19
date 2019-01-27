@@ -78,7 +78,12 @@ ModelImporter:
     7400000: Drunk Idle
     9500000: //RootNode
     13700000: HoboHans
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: HoboMaterial
+    second: {fileID: 2100000, guid: 0dd7ff0f9a1f5604dbb10ff5764df18b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

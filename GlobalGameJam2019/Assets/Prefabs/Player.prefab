@@ -1147,7 +1147,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b58f166459a93345b4f1c345ef766d7, type: 3}
+  - {fileID: 2100000, guid: 0dd7ff0f9a1f5604dbb10ff5764df18b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1666,15 +1666,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c2c43f27ddbfde4ca0b02f51a860b0c, type: 3}
---- !u!1 &7535011255303386900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7545324634039286246, guid: 5c2c43f27ddbfde4ca0b02f51a860b0c,
-    type: 3}
-  m_PrefabInstance: {fileID: 11219518051831538}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5212347777680368004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5220277419367772022, guid: 5c2c43f27ddbfde4ca0b02f51a860b0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 11219518051831538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7535011255303386900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7545324634039286246, guid: 5c2c43f27ddbfde4ca0b02f51a860b0c,
     type: 3}
   m_PrefabInstance: {fileID: 11219518051831538}
   m_PrefabAsset: {fileID: 0}
